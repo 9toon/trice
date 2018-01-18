@@ -10,7 +10,7 @@ module Trice
       end
 
       def around(controller, &action)
-        t = stubbed_requested_at(controller) || Time.now
+        t = stubbed_requested_at(controller) || Trice::CurrentTime.fetch
 
         Trice.with_reference_time(t, &action)
       end

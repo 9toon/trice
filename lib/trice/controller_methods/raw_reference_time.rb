@@ -8,7 +8,7 @@ module Trice
       end
 
       def call(env)
-        env[ENV_KEY] = Time.now
+        env[ENV_KEY] = Trice::CurrentTime.fetch
 
         Trice.with_reference_time(env[ENV_KEY]) { @app.call(env) }
       end

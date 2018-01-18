@@ -17,7 +17,7 @@ module Trice
     end
 
     def set_now_as_reference_time
-      set_reference_time(Time.now)
+      set_reference_time(Trice::CurrentTime.fetch)
     end
 
     def stub_requested_at(static_time = nil, &block)
